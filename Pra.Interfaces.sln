@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pra.Interfaces.Wpf", "Pra.Interfaces.Wpf\Pra.Interfaces.Wpf.csproj", "{1458EA67-3A1F-4A4A-BFAF-2F858C5D7739}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pra.Transportation.Core", "Pra.Transportation.Core\Pra.Transportation.Core.csproj", "{4D826024-F2AF-4852-BBC3-FEB50C0ECC47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1458EA67-3A1F-4A4A-BFAF-2F858C5D7739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1458EA67-3A1F-4A4A-BFAF-2F858C5D7739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1458EA67-3A1F-4A4A-BFAF-2F858C5D7739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D826024-F2AF-4852-BBC3-FEB50C0ECC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D826024-F2AF-4852-BBC3-FEB50C0ECC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D826024-F2AF-4852-BBC3-FEB50C0ECC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D826024-F2AF-4852-BBC3-FEB50C0ECC47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
