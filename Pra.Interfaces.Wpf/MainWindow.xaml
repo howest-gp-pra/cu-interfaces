@@ -1,0 +1,22 @@
+﻿<Window x:Class="Pra.Interfaces.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pra.Interfaces.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="428" Width="610" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock x:Name="tbkFeedBack" HorizontalAlignment="Left" Margin="179,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="103" Width="194" Padding="5,5,5,5" Background="#FFFF5252" Foreground="White"/>
+        <ListBox x:Name="lstTrips" HorizontalAlignment="Left" Height="350" Margin="383,36,0,0" VerticalAlignment="Top" Width="197"/>
+        <Label Content="Personen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="136"/>
+        <ListBox x:Name="lstMeansOfTransport" HorizontalAlignment="Left" Height="191" Margin="179,62,0,0" VerticalAlignment="Top" Width="194" TabIndex="3"/>
+        <Label Content="Transportmiddelen" HorizontalAlignment="Left" Margin="179,36,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Afstand" HorizontalAlignment="Left" Margin="179,14,0,0" VerticalAlignment="Top" Width="51"/>
+        <TextBox x:Name="txtDistance" HorizontalAlignment="Left" Margin="241,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" TabIndex="2"/>
+        <ListBox x:Name="lstPersons" HorizontalAlignment="Left" Height="242" Margin="10,36,0,0" VerticalAlignment="Top" Width="150" SelectionChanged="LstPersons_SelectionChanged" TabIndex="1"/>
+        <Label Content="Verplaatsingen" HorizontalAlignment="Left" Margin="383,10,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button x:Name="btnGo" Content="Vertrek" HorizontalAlignment="Left" Margin="179,258,0,0" VerticalAlignment="Top" Width="58" Click="BtnGo_Click" TabIndex="4"/>
+
+    </Grid>
+</Window>
