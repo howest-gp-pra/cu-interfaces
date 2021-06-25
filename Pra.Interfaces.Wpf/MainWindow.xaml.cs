@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pra.Transportation.Core.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace Pra.Interfaces.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        TransportService transportService = new TransportService();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,9 +35,17 @@ namespace Pra.Interfaces.Wpf
             tbkFeedBack.Background = isError ? Brushes.IndianRed : Brushes.DeepSkyBlue;
         }
 
+        void ShowMeansOfTransport()
+        {
+            lstMeansOfTransport.ItemsSource = transportService.Movables;
+            lstMeansOfTransport.Items.Refresh();
+            lstMeansOfTransport.DisplayMemberPath = "TransportationInfo";
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            ShowMeansOfTransport();
+            tbkFeedBack.Visibility = Visibility.Hidden;
         }
 
         private void LstPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)

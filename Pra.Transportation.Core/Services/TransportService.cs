@@ -21,17 +21,18 @@ namespace Pra.Transportation.Core.Services
         public TransportService()
         {
             SeedData();
+            
         }
 
         private void SeedData()
         {
             // Seed movables
-            Bike bike = new Bike(30, "Eddy Merckx classic");
-            Bike bike2 = new Bike(20, "Flandria");
+            Bike merckx = new Bike(30, "Eddy Merckx classic");
+            Bike flandria = new Bike(20, "Flandria");
 
             movables = new List<IMovable>
             {
-                bike
+                merckx, flandria
             };
 
         }

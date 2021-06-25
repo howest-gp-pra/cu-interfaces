@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pra.Transportation.Core\Pra.Transportation.Core.csproj" />
+  </ItemGroup>
+
 </Project>
