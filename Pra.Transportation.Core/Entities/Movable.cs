@@ -1,11 +1,20 @@
-﻿using System;
+﻿using Pra.Transportation.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
+
 namespace Pra.Transportation.Core.Entities
 {
-    public abstract class Movable
+    public abstract class Movable : IMovable
     {
         protected static Random random = new Random();
+
+        public float AverageSpeed { get; set; }
+
+        public virtual string TransportationInfo
+        {
+            get { return $"{Model}\n\t{AverageSpeed} km/u."; }
+        }
 
         public TimeSpan TimePerKilometer
         {
@@ -16,21 +25,19 @@ namespace Pra.Transportation.Core.Entities
             }
         }
 
-        public virtual string TransportationInfo
-        {
-            get { return $"{Model}\n\t{AverageSpeed} km/u."; }
-        }
-
-        public float AverageSpeed { get; set; }
-
         public string Model { get; set; }
 
-        public Movable(float averageSpeed, string model)
+        public abstract TimeSpan Move(float kilometers);
+
+        public Movable(string model)
         {
-            AverageSpeed = averageSpeed;
             Model = model;
         }
-        public abstract TimeSpan Move(float kilometers);
+
+        protected TimeSpan CalculateTripDuration(float kilometers, float speedFactor)
+        {
+            return TimePerKilometer * kilometers * speedFactor;
+        }
 
         public override string ToString()
         {

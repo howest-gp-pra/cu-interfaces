@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Pra.Transportation.Core.Interfaces
 {
-    public interface IMovable
-    {
-        float AverageSpeed { get;  }
-        string TransportationInfo { get; }
-        TimeSpan Move(float kilometers);
-    }
+public interface IMovable
+{
+    float AverageSpeed { get; }
+    string TransportationInfo { get; }
+    TimeSpan Move(float kilometers);
+}
 }
