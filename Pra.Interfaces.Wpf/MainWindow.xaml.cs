@@ -28,13 +28,6 @@ namespace Pra.Interfaces.Wpf
             InitializeComponent();
         }
 
-        void ShowFeedback(string feedback, bool isError = true)
-        {
-            tbkFeedBack.Visibility = Visibility.Visible;
-            tbkFeedBack.Text = feedback;
-            tbkFeedBack.Background = isError ? Brushes.IndianRed : Brushes.DeepSkyBlue;
-        }
-
         void ShowMeansOfTransport()
         {
             lstMeansOfTransport.ItemsSource = transportService.Movables;
