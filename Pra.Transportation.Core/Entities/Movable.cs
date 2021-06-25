@@ -29,8 +29,9 @@ namespace Pra.Transportation.Core.Entities
 
         public abstract TimeSpan Move(float kilometers);
 
-        public Movable(string model)
+        public Movable(float averageSpeed, string model)
         {
+            AverageSpeed = averageSpeed;
             Model = model;
         }
 

@@ -6,11 +6,11 @@ namespace Pra.Transportation.Core.Entities
 {
     public class Bike : Movable
     {
-        public Bike(string model) : base(model)
+        public Bike(float averageSpeed, string type) : base(averageSpeed, type)
         {
 
         }
-        
+
         public override TimeSpan Move(float kilometers)
         {
             float windFactor = random.Next(80, 120) / 100F;
