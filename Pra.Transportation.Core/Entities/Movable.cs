@@ -11,7 +11,7 @@ namespace Pra.Transportation.Core.Entities
 
         public float AverageSpeed { get; set; }
 
-        public virtual string TransportationInfo
+        public string TransportationInfo
         {
             get { return $"{Model}\n\t{AverageSpeed} km/u."; }
         }
