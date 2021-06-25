@@ -32,13 +32,11 @@ namespace Pra.Interfaces.Wpf
         {
             lstMeansOfTransport.ItemsSource = transportService.Movables;
             lstMeansOfTransport.Items.Refresh();
-            lstMeansOfTransport.DisplayMemberPath = "TransportationInfo";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ShowMeansOfTransport();
-            tbkFeedBack.Visibility = Visibility.Hidden;
         }
 
         private void LstPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
