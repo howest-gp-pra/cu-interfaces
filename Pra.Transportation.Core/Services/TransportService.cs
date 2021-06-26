@@ -29,10 +29,12 @@ namespace Pra.Transportation.Core.Services
             // Seed movables
             Bike merckx = new Bike(30, "Eddy Merckx classic");
             Bike flandria = new Bike(20, "Flandria");
+            Car daf = new Car(60, "Daf Variomatic", 5.5F);
+            Car sportsCar = new Car(320, "Bugatti Veyron", 23.3F);
 
             movables = new List<IMovable>
             {
-                merckx, flandria
+                merckx, flandria, daf, sportsCar
             };
 
         }

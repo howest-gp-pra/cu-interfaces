@@ -6,16 +6,26 @@ namespace Pra.Transportation.Core.Entities
 {
     public class Car : Movable
     {
+        public float AverageConsumption { get; set; }
+
+        public override string TransportationInfo
+        {
+            get
+            {
+                return $"{base.TransportationInfo}\n\t{AverageConsumption} l/100 km.";
+            }
+        }
 
         public Car(float averageSpeed, string type, float averageConsumption) : base(averageSpeed, type)
         {
-            
+            AverageConsumption = averageConsumption;
         }
 
         public override TimeSpan Move(float kilometers)
         {
-            // Efectieve implementatie volgt verder
-            return new TimeSpan(0);
+            int trafficFluency = random.Next(0, 51);
+            float trafficInfluence = (100 + trafficFluency) / 100F;
+            return CalculateTripDuration(kilometers, trafficInfluence);
         }
     }
 }
