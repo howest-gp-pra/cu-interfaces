@@ -34,6 +34,13 @@ namespace Pra.Interfaces.Wpf
             lstMeansOfTransport.Items.Refresh();
         }
 
+        void ShowFeedback(string feedback, bool isError = true)
+        {
+            tbkFeedBack.Visibility = Visibility.Visible;
+            tbkFeedBack.Text = feedback;
+            tbkFeedBack.Background = isError ? Brushes.IndianRed : Brushes.DeepSkyBlue;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ShowMeansOfTransport();
