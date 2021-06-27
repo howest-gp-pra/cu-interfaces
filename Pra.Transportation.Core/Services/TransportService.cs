@@ -9,6 +9,11 @@ namespace Pra.Transportation.Core.Services
     public class TransportService
     {
         private List<IMovable> movables;
+        private List<Person> people;
+        public IEnumerable<Person> People
+        {
+            get { return people.AsReadOnly(); }
+        }
 
         public IEnumerable<IMovable> Movables 
         { 
@@ -21,7 +26,6 @@ namespace Pra.Transportation.Core.Services
         public TransportService()
         {
             SeedData();
-            
         }
 
         private void SeedData()
@@ -37,6 +41,23 @@ namespace Pra.Transportation.Core.Services
                 merckx, flandria, daf, sportsCar
             };
 
+            // Seed persons
+            Person jack = new Person("Jack");
+            Person john = new Person("John");
+            Person jamie = new Person("Jamie");
+            Person jenny = new Person("Jenny");
+
+            people = new List<Person>
+            {
+                jack, john, jamie, jenny
+            };
+
+            // Simulate trips
+            john.Go(15.85F, merckx);
+            jack.Go(115.85F, flandria);
+            jenny.Go(1200F, sportsCar);
+            jamie.Go(120.25F, sportsCar);
+            jack.Go(150.85F, daf);
         }
     }
 }
