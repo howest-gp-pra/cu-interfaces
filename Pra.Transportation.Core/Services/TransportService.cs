@@ -15,14 +15,6 @@ namespace Pra.Transportation.Core.Services
             get { return people.AsReadOnly(); }
         }
 
-        public IEnumerable<IMovable> Movables 
-        { 
-            get
-            {
-                return movables.AsReadOnly();
-            }
-        }
-
         public TransportService()
         {
             SeedData();
@@ -52,12 +44,25 @@ namespace Pra.Transportation.Core.Services
                 jack, john, jamie, jenny
             };
 
+            movables.InsertRange(0, people);
+
             // Simulate trips
             john.Go(15.85F, merckx);
             jack.Go(115.85F, flandria);
             jenny.Go(1200F, sportsCar);
             jamie.Go(120.25F, sportsCar);
             jack.Go(150.85F, daf);
+        }
+
+        public List<IMovable> GetAvailableMovables(Person person)
+        {
+            List<IMovable> availableMovables = new List<IMovable>();
+            foreach (IMovable movable in movables)
+            {
+                if (!(movable is Person) || movable == person)
+                    availableMovables.Add(movable);
+            }
+            return availableMovables;
         }
     }
 }

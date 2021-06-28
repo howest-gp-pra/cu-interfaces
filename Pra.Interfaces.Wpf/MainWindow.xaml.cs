@@ -37,10 +37,11 @@ namespace Pra.Interfaces.Wpf
             tbkFeedBack.Background = isError ? Brushes.IndianRed : Brushes.DeepSkyBlue;
         }
 
-        void ShowMeansOfTransport()
+        void ShowMeansOfTransport(Person person)
         {
-            lstMeansOfTransport.ItemsSource = transportService.Movables;
+            lstMeansOfTransport.ItemsSource = transportService.GetAvailableMovables(person);
             lstMeansOfTransport.Items.Refresh();
+            lstMeansOfTransport.DisplayMemberPath = "TransportationInfo";
         }
 
         void ShowPeople()
@@ -57,7 +58,6 @@ namespace Pra.Interfaces.Wpf
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ShowMeansOfTransport();
             ShowPeople();
             tbkFeedBack.Visibility = Visibility.Hidden;
             lstPersons.SelectedIndex = 0;
@@ -66,7 +66,7 @@ namespace Pra.Interfaces.Wpf
         private void LstPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Person currentPerson = (Person)lstPersons.SelectedItem;
-            ShowMeansOfTransport();
+            ShowMeansOfTransport(currentPerson);
             ShowTrips(currentPerson);
             txtDistance.Focus();
             txtDistance.SelectAll();
@@ -75,7 +75,7 @@ namespace Pra.Interfaces.Wpf
         private void BtnGo_Click(object sender, RoutedEventArgs e)
         {
             tbkFeedBack.Visibility = Visibility.Hidden;
-            Movable movable = (Movable)lstMeansOfTransport.SelectedItem;
+            IMovable movable = (IMovable)lstMeansOfTransport.SelectedItem;
             Person currentPerson = (Person)lstPersons.SelectedItem;
             bool validDistance = float.TryParse(txtDistance.Text, out float distance);
 

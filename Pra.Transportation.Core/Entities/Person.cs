@@ -1,11 +1,19 @@
-﻿using System;
+﻿using Pra.Transportation.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Pra.Transportation.Core.Entities
 {
-    public class Person
+    public class Person : IMovable
     {
+
+        public float AverageSpeed { get; } = 5;
+
+        public string TransportationInfo
+        {
+            get { return "Te voet"; }
+        }
 
         private List<string> trips = new List<string>();
 
@@ -21,7 +29,7 @@ namespace Pra.Transportation.Core.Entities
             Name = name;
         }
 
-        public void Go(float distance, Movable transport)
+        public void Go(float distance, IMovable transport)
         {
             if (transport == null)
                 throw new Exception("Geef een transportmiddel door.");
@@ -39,6 +47,12 @@ namespace Pra.Transportation.Core.Entities
             logBuilder.Append('-', 30);
 
             trips.Insert(0, logBuilder.ToString());
+        }
+
+        public TimeSpan Move(float kilometers)
+        {
+            float hoursWalked = kilometers / AverageSpeed;
+            return TimeSpan.FromHours(hoursWalked);
         }
 
         public override string ToString()
