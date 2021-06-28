@@ -59,8 +59,8 @@ namespace Pra.Interfaces.Wpf
         {
             ShowMeansOfTransport();
             ShowPeople();
-            lstPersons.SelectedIndex = 0;
             tbkFeedBack.Visibility = Visibility.Hidden;
+            lstPersons.SelectedIndex = 0;
         }
 
         private void LstPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
