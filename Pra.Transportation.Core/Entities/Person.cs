@@ -43,6 +43,8 @@ namespace Pra.Transportation.Core.Entities
             logBuilder.AppendLine(DateTime.Now.ToString("[dd MMM HH:mm]"));
             logBuilder.AppendLine($"{distance} km: {(int)duration.TotalMinutes} min.");
             logBuilder.AppendLine($"{transport.TransportationInfo}");
+            if (transport is IMotorized motorized)
+                logBuilder.AppendLine($"Verbruik: {motorized.ConsumptionDuringLastTrip:0.00} l.");
 
             logBuilder.Append('-', 30);
 

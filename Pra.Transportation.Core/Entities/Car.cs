@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Pra.Transportation.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Pra.Transportation.Core.Entities
 {
-    public class Car : Movable
+    public class Car : Movable, IMotorized
     {
+        public float ConsumptionDuringLastTrip { get; private set; }
+
         public float AverageConsumption { get; set; }
 
         public override string TransportationInfo
@@ -25,7 +28,14 @@ namespace Pra.Transportation.Core.Entities
         {
             int trafficFluency = random.Next(0, 51);
             float trafficInfluence = (100 + trafficFluency) / 100F;
+            RegisterTripConsumption(kilometers);
             return CalculateTripDuration(kilometers, trafficInfluence);
         }
+
+        private void RegisterTripConsumption(float kilometers)
+        {
+            ConsumptionDuringLastTrip = AverageConsumption * kilometers / 100;
+        }
+
     }
 }
