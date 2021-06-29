@@ -5,8 +5,19 @@ using System.Text;
 
 namespace Pra.Transportation.Core.Entities
 {
-    public class Person : IMovable
+    public class Person : IMovable, INamable
     {
+        private List<INamable> responsibleFor = new List<INamable>();
+
+        public IEnumerable<INamable> ResponsibleFor
+        {
+            get { return responsibleFor.AsReadOnly(); }
+        }
+
+        public bool HasResponsibilities
+        {
+            get { return responsibleFor.Count > 0; }
+        }
 
         public float AverageSpeed { get; } = 5;
 
@@ -56,6 +67,38 @@ namespace Pra.Transportation.Core.Entities
             float hoursWalked = kilometers / AverageSpeed;
             return TimeSpan.FromHours(hoursWalked);
         }
+
+        public bool AssumeResponsibility(INamable creature)
+        {
+            if (creature == null)
+                throw new Exception("Geef een wezen door om verantwoordelijkheid over op te nemen.");
+            if (creature == this)
+                throw new Exception("Je bent sowieso verantwoordelijk voor jezelf.");
+            if (!responsibleFor.Contains(creature))
+            {
+                responsibleFor.Add(creature);
+                return true;
+            }
+            return false;
+        }
+
+        public string ShowResponsibilities()
+        {
+            if (HasResponsibilities)
+            {
+                StringBuilder stringBuilder = new StringBuilder("Verantwoordelijk voor: \n");
+                foreach (INamable creature in ResponsibleFor)
+                {
+                    stringBuilder.AppendLine(creature.Name);
+                }
+                return stringBuilder.ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
 
         public override string ToString()
         {

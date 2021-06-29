@@ -38,6 +38,9 @@ namespace Pra.Transportation.Core.Services
             Person john = new Person("John");
             Person jamie = new Person("Jamie");
             Person jenny = new Person("Jenny");
+            Pet minou = new Pet("Minou");
+            Pet fox = new Pet("Fox");
+
 
             people = new List<Person>
             {
@@ -52,6 +55,12 @@ namespace Pra.Transportation.Core.Services
             jenny.Go(1200F, sportsCar);
             jamie.Go(120.25F, sportsCar);
             jack.Go(150.85F, daf);
+
+            // Seed responsibilities
+            jack.AssumeResponsibility(minou);
+            jack.AssumeResponsibility(fox);
+            jenny.AssumeResponsibility(john);
+            jenny.AssumeResponsibility(jamie);
         }
 
         public List<IMovable> GetAvailableMovables(Person person)

@@ -56,6 +56,15 @@ namespace Pra.Interfaces.Wpf
             lstTrips.Items.Refresh();
         }
 
+        void ShowResponsibilities(Person person)
+        {
+            tbkFeedBack.Visibility = Visibility.Hidden;
+            if (person.HasResponsibilities)
+            {
+                ShowFeedback(person.ShowResponsibilities(), false);
+            }
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ShowPeople();
@@ -66,6 +75,7 @@ namespace Pra.Interfaces.Wpf
         private void LstPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Person currentPerson = (Person)lstPersons.SelectedItem;
+            ShowResponsibilities(currentPerson);
             ShowMeansOfTransport(currentPerson);
             ShowTrips(currentPerson);
             txtDistance.Focus();
