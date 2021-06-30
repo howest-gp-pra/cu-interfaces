@@ -1,8 +1,7 @@
-﻿using Pra.Transportation.Core.Entities;
-using Pra.Transportation.Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Pra.Transportation.Core.Entities;
+using Pra.Transportation.Core.Interfaces;
 
 namespace Pra.Transportation.Core.Services
 {
@@ -21,7 +20,6 @@ namespace Pra.Transportation.Core.Services
         public TransportService()
         {
             SeedData();
-            
         }
 
         private void SeedData()
