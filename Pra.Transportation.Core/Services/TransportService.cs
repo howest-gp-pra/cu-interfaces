@@ -37,6 +37,8 @@ namespace Pra.Transportation.Core.Services
             Person john = new Person("John");
             Person jamie = new Person("Jamie");
             Person jenny = new Person("Jenny");
+
+            // Seed animals
             Pet minou = new Pet("Minou");
             Pet fox = new Pet("Fox");
 
