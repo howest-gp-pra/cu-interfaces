@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Pra.Transportation.Core.Entities;
+using Pra.Transportation.Core.Interfaces;
 using Pra.Transportation.Core.Services;
 
 namespace Pra.Interfaces.Wpf
