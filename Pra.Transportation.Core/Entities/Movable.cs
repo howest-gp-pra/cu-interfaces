@@ -1,5 +1,5 @@
-﻿using Pra.Transportation.Core.Interfaces;
-using System;
+﻿using System;
+using Pra.Transportation.Core.Interfaces;
 
 namespace Pra.Transportation.Core.Entities
 {
