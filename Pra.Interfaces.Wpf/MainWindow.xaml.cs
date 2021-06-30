@@ -66,7 +66,6 @@ namespace Pra.Interfaces.Wpf
         private void LstPersons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Person currentPerson = (Person)lstPersons.SelectedItem;
-            ShowMeansOfTransport();
             ShowTrips(currentPerson);
             txtDistance.Focus();
             txtDistance.SelectAll();
