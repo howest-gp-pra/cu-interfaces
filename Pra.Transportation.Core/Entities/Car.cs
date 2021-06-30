@@ -1,7 +1,5 @@
-﻿using Pra.Transportation.Core.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using Pra.Transportation.Core.Interfaces;
 
 namespace Pra.Transportation.Core.Entities
 {
